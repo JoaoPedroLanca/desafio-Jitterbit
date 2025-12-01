@@ -2,13 +2,20 @@ const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs");
 
-// Todo o controller foi criado imaginando que exista uma tabela de usuários, porém como o desafio não pede isso, abaixo está uma simulação
+// Simulação de banco de usuários
+const users = [
+    {
+        id: 1,
+        username: process.env.DEFAULT_USER || 'admin',
+        password: bcrypt.hashSync(process.env.DEFAULT_PASSWORD || 'admin123', 10)
+    }
+];
 
 async function login(req, res, next) {
     try {
         const { username, password } = req.body;
 
-        if (!username || password) {
+        if (!username || !password) {
             return res.status(400).json({ message: "Username e password são obrigatórios" });
         }
 

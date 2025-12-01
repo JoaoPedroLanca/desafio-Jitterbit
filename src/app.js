@@ -1,9 +1,9 @@
 require("dotenv").config();
 const express = require("express");
+const { swaggerUi, swaggerSpec } = require("./config/swagger");
 const orderRoutes = require("./routes/orderRoutes");
-const authRoutes = require("./routes/authRoutes")
+const authRoutes = require("./routes/authRoutes");
 const errorHandler = require("./middlewares/errorHandler");
-const { swaggerSpec } = require("./config/swagger");
 
 const app = express();
 

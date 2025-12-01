@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
-function autheticateToken(req, res, next) {
-    const authHeader = req.headers["autorization"];
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 
     if (!token) {
@@ -10,11 +10,11 @@ function autheticateToken(req, res, next) {
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) {
-            return res.status(403).json({ message: "Token inválido ou já expirado" })
+            return res.status(403).json({ message: "Token inválido ou já expirado" });
         }
         req.user = user;
         next();
     });
 }
 
-module.exports = autheticateToken;
+module.exports = authenticateToken;
