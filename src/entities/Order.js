@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (Sequelize, DataTypes) => {
-    const Order = Sequelize.define("Order",
+module.exports = (sequelize, DataTypes) => {
+    const Order = sequelize.define("Order",
         {
             orderId: {
                 type: DataTypes.STRING,
