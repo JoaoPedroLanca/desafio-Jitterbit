@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const bcrypt = require("bcryptjs");
 
-// Simulação de banco de usuários
+// O controller foi criado imaginando que exista uma tabela de usuários, porém como o desafio não pede isso, abaixo está uma simulação
 const users = [
     {
         id: 1,
