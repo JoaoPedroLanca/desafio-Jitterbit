@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const sequelize = require("../config/database");
+const { sequelize } = require("../config/database");
 
 const OrderEntity = require("./Order");
 const ItemEntity = require("./Item");
