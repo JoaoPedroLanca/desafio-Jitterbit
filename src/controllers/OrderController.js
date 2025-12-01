@@ -145,7 +145,7 @@ async function deleteOrder(req, res, next) {
 
         return res.status(204).send();
     } catch (error) {
-        await transaction.rollback;
+        await transaction.rollback();
         next(error);
     }
 }
